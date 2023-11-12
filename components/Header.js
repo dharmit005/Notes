@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
         width:"100%",
         height:"13%",
         backgroundColor: Platform.OS == "android" ? "purple" : "yellow",
-        paddingTop: 30,
         paddingLeft: 90,
         alignContent: 'center',
         textAlign:'center',
