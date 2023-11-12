@@ -1,0 +1,1 @@
+export const ScreenType={home:"HOME", addNote:"ADD_Note", allNotes: "ALL_NOTES",};
