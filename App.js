@@ -108,7 +108,7 @@ const App = () => {
   };
 
   return (
-    <View style={{ flex: 1, marginTop: 50 }}>
+    <View style={{ flex: 1 }}>
        <Header />
        <View style={styles.buttonContainer}>
        <View style={styles.mainButton}>
@@ -125,9 +125,9 @@ const App = () => {
           renderItem={({ item, index }) => (
             <View >
               <View style={styles.card}>
-              <Text>Client: {item.client}</Text>
-              <Text>Category: {item.category}</Text>
-              <Text>Note: {item.text}</Text>
+              <Text style={{fontSize:20, fontWeight:'bold'}}>Client: {item.client}</Text>
+              <Text style={{fontSize:15, fontWeight:'bold'}}>Category: {item.category}</Text>
+              <Text style={{fontSize:15, fontWeight:'normal'}}>Note: {item.text}</Text>
               <View style={styles.fixToText}>
               <Button title="Edit" onPress={() => editNote(index)} />
               <Button title="Delete" onPress={() => deleteNote(index)} />
@@ -141,22 +141,26 @@ const App = () => {
       
 
       <Modal visible={showModal} animationType="slide">
+      <Header />
         <View style={{ margin: 30, paddingTop: 20 }}>
           <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2,borderRadius: 10}}>
         <TextInput
+        style={{fontSize:20, fontWeight:'bold'}}
           placeholder="Enter client"
             mode="outlined"
             onChangeText={(text) => setSelectedClient(text)}
           />
           </View>
+          
           <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2,borderRadius: 10, height: 200}}>
           <TextInput
+          style={{fontSize:15, fontWeight:'normal'}}
             placeholder="Enter note text"
             multiline={true}
             onChangeText={(text) => setNoteText(text)}
           />
           </View>
-          <Text>Choose a category:</Text>
+          <Text style={{fontSize:15, fontWeight:'bold'}}>Choose a category:</Text>
           {categories.map((category) => (
             <View >
             <Button

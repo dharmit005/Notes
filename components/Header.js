@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         paddingLeft: 90,
         alignContent: 'center',
         textAlign:'center',
+        paddingTop:15
         },
         headerTile:{
             color: Platform.OS === "android" ? "white" : "purple",
