@@ -123,12 +123,16 @@ const App = () => {
           data={notes}
           keyExtractor={(_, index) => index.toString()}
           renderItem={({ item, index }) => (
-            <View>
+            <View >
+              <View style={styles.card}>
               <Text>Client: {item.client}</Text>
               <Text>Category: {item.category}</Text>
               <Text>Note: {item.text}</Text>
+              <View style={styles.fixToText}>
               <Button title="Edit" onPress={() => editNote(index)} />
               <Button title="Delete" onPress={() => deleteNote(index)} />
+              </View>
+              </View>
             </View>
           )}
         />
@@ -138,14 +142,14 @@ const App = () => {
 
       <Modal visible={showModal} animationType="slide">
         <View style={{ margin: 30, paddingTop: 20 }}>
-          <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2}}>
+          <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2,borderRadius: 10}}>
         <TextInput
           placeholder="Enter client"
             mode="outlined"
             onChangeText={(text) => setSelectedClient(text)}
           />
           </View>
-          <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2, height: 200}}>
+          <View style={{ padding:4,margin: 10 , borderColor:'black', borderWidth: 2,borderRadius: 10, height: 200}}>
           <TextInput
             placeholder="Enter note text"
             multiline={true}
@@ -169,8 +173,9 @@ const App = () => {
             <Button title="Update Note" onPress={updateNote} />
           ) : (
             <Button title="Add Note" onPress={addNote} />
+      
           )}
-          <Button title="Add Note" onPress={addNote} />
+          {/* <Button title="Add Note" onPress={addNote} /> */}
           <Button title="Close" onPress={() => setShowModal(false)} />
           </View>
         </View>
@@ -222,4 +227,12 @@ const styles = StyleSheet.create({
       paddingTop: 10,
       alignItems: 'center',
     },
+    card:{
+      paddingHorizontal: 5,
+      paddingTop: 10,
+      borderWidth: 2,
+      margin: 5,
+      borderRadius: 10
+    },
+
   });
